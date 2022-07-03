@@ -3,7 +3,7 @@ class CreateGoals < ActiveRecord::Migration[7.0]
     create_table :goals do |t|
       t.string :title, null: false
       t.text :body, null: false
-      t.date :date_time, null: false, date_tim
+      t.date :date_time, null: false
       t.string :priority
       t.boolean :isComplete
 
