@@ -28,4 +28,4 @@ Requirements:
 
 * It is possible to back to the “About” page - done
 
-* It is possible to filter goals on the “My Goals” page - done (Filtration particularly (only by Completed / IncomplpedGoal))
+* It is possible to filter goals on the “My Goals” page (Filtration particularly (only by Completed / IncomplpedGoal)) - done
