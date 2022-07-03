@@ -1,0 +1,142 @@
+
+<% if @goals.empty? %>
+	<div class="container mt-5" style="text-align: center;">
+    <%= image_tag "empty.png", height: 260 %>
+    <p>You have no goals. Not going to lie, this is a bit sad</p>
+    <%= link_to 'Create a Goal', new_goal_path, class: "btn btn-primary"%>
+  </div>
+<%else%>
+
+<div class="container shadow rounded p-2">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Goals <%= @goals.length%></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">InCompleted <%= @goals_is_completed.length%></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Completed <%= @goals_is_not_completed.length%></button>
+  </li>
+  <li class="d-flex", style="position: relative; left: 750px;">
+      <%= link_to 'New Goal', new_goal_path, class: "btn btn-primary"%>
+  </li>
+</ul>
+</div>
+
+<div class="tab-content container justify center shadow p-3 mb-5 bg-body rounded rounded-top mt-3 " id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+  	<table class="table">
+  		<thead>
+    		<tr>
+     			<th scope="col">Goal Name</th>
+      		<th scope="col">Due Date</th>
+      		<th scope="col">Priority</th>
+    		</tr>
+  		</thead>
+  		<tbody>
+  			<% @goals.each do |goal|%>
+						<tr onclick="location.href='<%= goal_path(goal)%>'">
+      			
+      			<td><p>
+      				<% if goal.isComplete == false%>
+      					<%= image_tag "inComplete.png", height: 20 %>
+      				<%else%>
+      					<%= image_tag "complete.png", height: 20 %>
+      				<%end%>
+      				<%= goal.title %></p></td>
+      			<td><p><date datetime="<%= goal.date_time.strftime('%m.%d.%Y')%>"><%= goal.date_time.strftime('%m.%d.%Y') %></date></p></td>
+      			<td><p>
+      				<% if goal.priority == "High"%>
+      					<%= image_tag "high.png", height: 25 %>
+      				<%elsif goal.priority == "Mid" %>
+      					<%= image_tag "mid.png", height: 25 %>
+      				<%else%>
+      					<%= image_tag "low.png", height: 25 %>
+      				<%end%>
+      				<%= goal.priority %><p></td>
+    	    </tr>
+				<% end %>
+		</table>
+
+  </div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+  	<%if @goals_is_completed.empty?%>
+      <strong style="text-align: center;"><p>You have no incompleted goals</p></strong>
+    <%else%>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Goal Name</th>
+          <th scope="col">Due Date</th>
+          <th scope="col">Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @goals_is_completed.each do |goal|%>
+            <tr onclick="location.href='<%= goal_path(goal)%>'">
+            
+            <td><p>
+              <% if goal.isComplete == false%>
+                <%= image_tag "inComplete.png", height: 20 %>
+              <%else%>
+                <%= image_tag "complete.png", height: 20 %>
+              <%end%>
+              <%= goal.title %></p></td>
+            <td><p><date datetime="<%= goal.date_time.strftime('%m.%d.%Y')%>"><%= goal.date_time.strftime('%m.%d.%Y') %></date></p></td>
+            <td><p>
+              <% if goal.priority == "High"%>
+                <%= image_tag "high.png", height: 25 %>
+              <%elsif goal.priority == "Mid" %>
+                <%= image_tag "mid.png", height: 25 %>
+              <%else%>
+                <%= image_tag "low.png", height: 25 %>
+              <%end%>
+              <%= goal.priority %><p></td>
+          </tr>
+        <% end %>
+    </table>
+    <%end%>
+
+  </div>
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+  	<%if @goals_is_not_completed.empty?%>
+      <strong style="text-align: center;"><p>You haven't completed any goals yet</p></strong>
+    <%else%>
+  	<table class="table">
+  		<thead>
+    		<tr>
+     			<th scope="col">Goal Name</th>
+      		<th scope="col">Due Date</th>
+      		<th scope="col">Priority</th>
+    		</tr>
+  		</thead>
+  		<tbody>
+  			<% @goals_is_not_completed.each do |goal|%>
+						<tr onclick="location.href='<%= goal_path(goal)%>'">
+      			
+      			<td><p>
+      				<% if goal.isComplete == false%>
+      					<%= image_tag "inComplete.png", height: 20 %>
+      				<%else%>
+      					<%= image_tag "complete.png", height: 20 %>
+      				<%end%>
+      				<%= goal.title %></p></td>
+      			<td><p><date datetime="<%= goal.date_time.strftime('%m.%d.%Y')%>"><%= goal.date_time.strftime('%m.%d.%Y') %></date></p></td>
+      			<td><p>
+      				<% if goal.priority == "High"%>
+      					<%= image_tag "high.png", height: 25 %>
+      				<%elsif goal.priority == "Mid" %>
+      					<%= image_tag "mid.png", height: 25 %>
+      				<%else%>
+      					<%= image_tag "low.png", height: 25 %>
+      				<%end%>
+      				<%= goal.priority %><p></td>
+    	    </tr>
+				<% end %>
+		</table>
+    <%end%>
+  </div>
+</div>
+<%end%>

@@ -1,0 +1,48 @@
+
+<div class="container mt-5 ">
+	<div class="card shadow-sm bg-body rounded">
+  <div class="card-header">
+    
+    <%= form_for [@goal] do |f| %>
+        <div hidden>
+          <% if @goal.isComplete == true%>
+            <%= f.select :isComplete, [["Incomplete", false]]%>
+          <%else%>
+            <%= f.select :isComplete, [["Complete", true]] %>
+          <%end%>
+        </div>
+        <div>
+        <% if @goal.isComplete == true%>
+          <%= f.submit '✓ Completed', class:"btn btn-success mb-1" %>
+        <%else%>
+          <%= f.submit '✓ Mark Complete', class:"btn btn-light mb-1" %>
+        <%end%>
+        </div>
+      <% end %>
+       <div class="btn-group  position-absolute top-0 end-0 p-1 m-1 mx-1" role="group" aria-label="Basic example">
+    
+        <%= link_to "✎ Edit", edit_goal_path(@goal), class:"btn btn-light rounded"%>
+        <%= button_to "🗑 Delete", @goal,form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class: "btn btn-light rounded "%>
+        
+    </div>
+  </div> 
+  <div class="card-body">
+    <h5 class="card-title"><%=@goal.title%></h5>
+    <p class="card-text"><text class="text-muted">Due Date: </text> <date datetime="<%= @goal.date_time.strftime('%m.%d.%Y')%>"><%= @goal.date_time.strftime('%m.%d.%Y') %></date> 
+      <text class="text-muted">Priority: 
+        <% if @goal.priority == "High"%>
+              <%= image_tag "high.png", height: 25 %>
+        <%elsif @goal.priority == "Mid" %>
+              <%= image_tag "mid.png", height: 25 %>
+        <%else%>
+              <%= image_tag "low.png", height: 25 %>
+        <%end%>
+
+      </text><%=@goal.priority%>
+    		<br>
+    		<text class="text-muted">Description: </text>
+    		<p><%=@goal.body%></p></p>
+  </div>
+  <%=link_to "⏴Back", goals_path, class:"btn btn-light"%>
+</div>
+</div>

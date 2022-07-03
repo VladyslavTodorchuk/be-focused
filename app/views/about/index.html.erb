@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+     <h2>Self-development goals tracker </h2>
+		<p>BeFocused is a convenient centralized personal space for any students, learners or other interested in self-education and self-development people. </p>
+		<p>Moreover, setting goals in the right way can help you achieve them! Each goal should be SMART, and here's what it means: 
+		Specific: Well defined, clear, and unambiguous </p>
+		<p>Measurable: With specific criteria that measure your progress towards the accomplishment of the goal 
+		Achievable: Attainable and not impossible to achieve Realistic: Within reach, realistic, and relevant to your life purpose Timely: With a clearly defined timeline, including a starting date and a target date. The purpose is to create urgency. </p>
+		<br>
+		<%if @goals.empty?%>
+			<%=link_to "Get Started", goals_path, class:"btn btn-primary mb-2"%>
+		<%else%>
+			<%=link_to "Back to Goals", goals_path, class:"btn btn-primary mb-2"%>
+		<%end%>
+    </div>
+    
+    <div class="col">
+      <%= image_tag "homePhoto.jpg", height: 500, id: "pict"%>
+    </div>
+  </div>
+</div>

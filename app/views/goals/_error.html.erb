@@ -1,0 +1,14 @@
+<% if @goal.errors.any? %>
+  <div class="container">
+    <div class="alert alert-danger" id="errors">
+      <p>The form contains <%= pluralize(@goal.errors.count, "error") %>.</p>
+    </div>
+    <div id="error">
+    <ul>
+      <% @goal.errors.full_messages.each do |msg| %>
+        <li class="alert alert-danger"><%= msg %></li>
+      <% end %>
+    </ul>
+  	</div>
+  </div>
+<% end %>

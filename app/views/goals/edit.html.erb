@@ -1,0 +1,44 @@
+<div class="container mt-5">
+	<%=  form_with(model: @goal, data: { turbo: false }) do |f|%>
+
+    	<%=render 'goals/error'%>
+
+
+	<div class="card shadow-sm bg-body rounded">
+  		<div class="card-header">
+    		Goal Editor
+  		</div>
+  		<div class="card-body">
+
+		<div>
+		<div>
+			<label>Title:</label>
+		</div>
+		<%= f.text_field :title, required: true, minlength: 2, maxlenght: 80 , placeholder: 'Title', class: "form-control"%>
+		</div>
+		<div>
+		<div>
+			<label>Description:</label>
+		</div>
+		<%= f.text_area :body, required: true, minlength: 2, maxlenght: 500 , placeholder: 'Description', class: "form-control"%>
+		</div>
+		<div>
+		<div>
+			<label>Due Date:</label>
+		</div>
+		<%= f.date_field :date_time, class: "form-control"%>
+		</div>
+		<div>
+		<div>
+			<label>Priority:</label>
+		</div>
+		<%= f.select :priority, [["High", "High"], ["Mid", "Mid"], ["Low", "Low"]] , { class: "form-select" }%>
+		</div>
+		<br>
+		<%= f.submit "Update", class: "btn btn-light"%>
+		<%= link_to "Cancel", goals_path, class: "btn btn-light"%>
+		<%end%>
+  		</div>
+	</div>
+</div>
+
