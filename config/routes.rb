@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :goals, only: %i[index new edit create update destroy show]
+  resources :goals
 
   post 'goals/change'
 
