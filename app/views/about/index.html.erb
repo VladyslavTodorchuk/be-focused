@@ -10,7 +10,12 @@
 		<p>Measurable: With specific criteria that measure your progress towards the accomplishment of the goal 
 		Achievable: Attainable and not impossible to achieve Realistic: Within reach, realistic, and relevant to your life purpose Timely: With a clearly defined timeline, including a starting date and a target date. The purpose is to create urgency.</p>
 		<br/>
-
+		
+		<%if @goals.empty?%>
+			<%=link_to "Get Started", goals_path, class:"btn btn-primary mb-2"%>
+		<%else%>
+			<%=link_to "Back to Goals", goals_path, class:"btn btn-primary mb-2"%>
+		<%end%>
     </div>
     
     <div class="col">
