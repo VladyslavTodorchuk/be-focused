@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require 'sprocket/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -11,6 +12,16 @@ module BeFocused
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.serve_static_assets = true
+
+    # Disable Rails's static asset server (Apache or nginx will already do this)
+    # Compress JavaScripts and CSS
+    config.assets.compress = true
+
+    # Don't fallback to assets pipeline if a precompiled asset is missed
+    config.assets.compile = true
+
+    # Generate digests for assets URLs
+    config.assets.digest = true
 
     # Configuration for the application, engines, and railties goes here.
     #
