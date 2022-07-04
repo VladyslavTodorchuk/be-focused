@@ -13,3 +13,4 @@
  //= link bootstrap.min.js
 // require turbolinks
 //= require_tree .
+//= link application.css

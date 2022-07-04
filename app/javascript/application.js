@@ -2,10 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 
-import HelloController from "./application/hello_controller";
-import "./application/logstuff";
-import "./application/main";
-
 import "jquery"
 import "jquery_ujs"
 import "popper"
@@ -19,18 +15,6 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $("#errors").click(function(){
-    $(this).slideUp();
+    $(this).slideDown();
   });
 });
-
-
-turbo.setConfirmMethod(()=> {
-	let dialog = document.getElementById("turbo-confirm")
-	dialog.showModal()
-
-	return new Promise((resolve, reject) => {
-		dialog.addEventListener("close", () => {
-			resolve(dialog.returnValue == "confirm")
-		}, {once: true})
-	})
-})

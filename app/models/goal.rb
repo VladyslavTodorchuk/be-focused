@@ -1,8 +1,8 @@
 class Goal < ApplicationRecord
 	 attribute :isComplete, default: -> { false }
 
-	 validates :title, presence: true, length: {maximum: 80}, format: { with: /([a-zA-Z0-9]|[!#$%&'*+-\/=?^_`{|}~. ])./, message: "Please enter title in correct format"}
-	 validates :body, presence: true, length: {maximum: 500}, format: { with: /([a-zA-Z0-9]||[!#$%&'*+-\/=?^_`{|}~. ])./, message: "Please enter body in correct format"}
+	 validates :title, presence: true, length: {maximum: 80}, format: { with: /\A[A-Za-z0-9!#$%&'*+-\/=?^_`{|}~. ]+\z/, message: " .Please enter title in correct format"}
+	 validates :body, presence: true, length: {maximum: 500}, format: { with: /\A[A-Za-z0-9!#$%&'*+-\/=?^_`{|}~. ]+\z/, message: " .Please enter body in correct format"}
 	 validates :date_time, presence: true
 
 
