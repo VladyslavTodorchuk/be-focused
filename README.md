@@ -1,7 +1,7 @@
 # Vlad Todorchuk
 # Ruby Garage TaskList 
 
-It is a WEB application]
+It is a WEB application
 For the client-side i used Ruby on Rails
 	i used Bootstrap lib for css and html
 	i used jQuery lib for JavaScript
