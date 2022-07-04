@@ -36,7 +36,7 @@
 		</div>
 		<br>
 		<%= f.submit "Update", class: "btn btn-light"%>
-		<%= link_to "Cancel", goals_path, class: "btn btn-light"%>
+		<%= link_to "Cancel", goals_path, class: "btn btn-light", data: { confirm: "Do you want to leave?"}%>
 		<%end%>
   		</div>
 	</div>

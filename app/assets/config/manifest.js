@@ -8,9 +8,5 @@
 //= require jquery_ujs
 //= link jquery.min.js
 //= link jquery_ujs.js
-//= require bootstrap.min
-//= link popper.js
- //= link bootstrap.min.js
 // require turbolinks
-//= require_tree .
-//= link application.css
+//= require_tree
