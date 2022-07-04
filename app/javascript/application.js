@@ -2,6 +2,10 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 
+import HelloController from "./application/hello_controller";
+import "./application/logstuff";
+import "./application/main";
+
 import "jquery"
 import "jquery_ujs"
 import "popper"
