@@ -28,6 +28,7 @@ class GoalsController < ApplicationController
 	def update
 		@goal = Goal.find_by id: params[:id]
 		respond_to do |format|
+	
 		if @goal.update goal_params
 			format.html { redirect_to goal_path, notice: 'Goal was successfully updated.' }
         	format.json { render :show, status: :ok, location: @goals }

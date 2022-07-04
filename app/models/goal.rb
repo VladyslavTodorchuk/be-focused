@@ -12,9 +12,11 @@ class Goal < ApplicationRecord
 
 	 def end_date_is_after_start_date
 	 	if date_time == nil
-	 		self.errors.add(:date_time, '.Date cannot be blank')
-    	elsif (DateTime.now > date_time) || (date_time >  DateTime.new(2100,12,30))
-      		self.errors.add(:date_time, '.Date cannot be earlier than today, a year cannot be more than 2100')
+	 		self.errors.add(:date_time, ' .Date cannot be blank')
+    	elsif (DateTime.now > date_time)
+      		self.errors.add(:date_time, ' .Date cannot be earlier than today')
+      	elsif (date_time >  DateTime.new(2100,12,30)
+      		self.errors.add(:date_time, ' .Year cannot be more than 2100')
       	end
      end
 end
