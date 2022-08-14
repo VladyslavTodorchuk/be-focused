@@ -29,3 +29,6 @@ Requirements:
 * It is possible to back to the “About” page - done
 
 * It is possible to filter goals on the “My Goals” page (Filtration particularly (only by Completed / Incomplped Goals)) - done
+
+
+Heroku - https://be-focuse-app.herokuapp.com/
