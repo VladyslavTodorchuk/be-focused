@@ -1,5 +1,5 @@
 # Vlad Todorchuk
-# Ruby Garage TaskList 
+# TaskList 
 
 It is a WEB application
 For the client-side i used Ruby on Rails
